@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add new</title>
+</head>
+
+<body>
+{{if .}}
+    <form name="addForm" action="/notes/confirm/">
+        <input name="newNoteInput" type="text">
+        <button type="submit">confirm</button>
+    </form>
+{{else}}
+    <p>Вы не авторизованы</p>
+{{end}}
+<form name="homeForm" action="/notes/">
+    <button type="submit">Home</button>
+</form>
+
+</body>
