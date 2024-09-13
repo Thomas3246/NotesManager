@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Login page</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
-<form id="loginForm" name="loginForm" action="/notes/login/" method="POST">
-    <label for="login">Логин</label>
-    <input type="login" id="login" name="login" autocomplete="on" required>
-    <label for="password">Пароль</label>
-    <input type="password" id="password" name="password" autocomplete="on" required>
-    <button type="submit" name="submitBtn">Войти</button>
-</form>
+<div class="loginPageDiv">
+    <form id="loginForm" name="loginForm" action="/notes/login/" method="POST">
+        <div class="inputLogin"> 
+            <label for="login">Логин</label>
+            <input type="login" id="login" name="login" autocomplete="on" required>
+        </div>
+        <div class="inputLogin">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" autocomplete="on" required>
+        </div>
+        <button class="loginBtn" type="submit" name="submitBtn">Войти</button>
+    </form>
 
-{{if .}}
-{{.}}
-{{end}}
+    {{if .}}
+    <div class="loginErrorlabel"> {{.}} </div>
+    {{end}}
+</div>
 
 </body>
 </html>

@@ -7,12 +7,13 @@ import (
 )
 
 func main() {
+	service.ClearLog()
 
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	http.HandleFunc("/notes/", handle.MainHandler)
-	http.HandleFunc("/notes/login/", handle.LoginHandlerPage)
+	http.HandleFunc("/notes/login/", handle.LoginHandler)
 	http.HandleFunc("/notes/logout/", handle.LogoutHandler)
 	http.HandleFunc("/notes/add/", handle.AddNoteHandler)
 	http.HandleFunc("/notes/confirm/", handle.ConfirmNoteHandler)

@@ -1,0 +1,107 @@
+body{
+    background-color: cadetblue;
+    font-family: "Roboto", sans-serif;;
+}
+
+button {
+    background-color:#3a7999;
+}
+
+button:hover {
+	background-color: darkslategrey;
+}
+
+.navigateBtn {
+    height: 8rem;
+    width: 25rem;
+    margin: 3rem;
+    font-family: "Roboto", sans-serif;
+    font-size: 2.2rem;
+}
+
+.navigateDiv {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8%;
+}
+
+.loginBtn {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    height: 2.5rem;
+    width: 10rem;
+    margin: 2rem;
+}
+
+.loginLabel {
+    font-family: "Roboto", sans-serif;
+    font-size: 2rem;
+    color: darkslategrey;
+}
+
+.loginDiv {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.loginPageDiv {
+    display: flexbox;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.inputLogin{
+    margin: 2rem;
+    font-size: 1.5rem;
+}
+
+.inputLogin input {
+    height: 1.5rem;
+}
+.loginErrorlabel{
+    font-size: 2rem;
+}
+
+.notesHeader {
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+
+.note {
+    margin-left: 3rem;
+}
+
+.homeBtn {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    height: 2.5rem;
+    width: 10rem;
+    margin-top: 2rem;
+    margin-left: 3rem;
+}
+
+.addNew {
+    display:flex;
+    height: 340px;
+    margin: 3rem;
+}
+
+.addNew textarea {
+    width: 100%;
+    font-size: 1.3rem;
+    resize: none;
+}
+
+
+.confirmBtn{
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    height: 2.5rem;
+    width: 10rem;
+    margin-left: 3rem;
+    margin-top: 3rem;
+}

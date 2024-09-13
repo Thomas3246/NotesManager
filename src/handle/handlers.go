@@ -1,7 +1,6 @@
 package handle
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 	"testTask/src/service"
@@ -12,15 +11,23 @@ var user service.User
 func MainHandler(writer http.ResponseWriter, request *http.Request) {
 	htmlfile, err := template.ParseFiles("templates/mainView.html")
 	service.Check(err)
-	err = htmlfile.Execute(writer, nil)
+	var logStatus struct {
+		Status string
+		Login  string
+	}
+	if user.GetLogin() == "" {
+		logStatus.Status = "Login"
+	} else {
+		logStatus.Status = "Logout"
+		logStatus.Login = user.GetLogin()
+	}
+	err = htmlfile.Execute(writer, logStatus)
 	service.Check(err)
 }
 
-func LoginHandlerPage(writer http.ResponseWriter, request *http.Request) {
+func LoginHandler(writer http.ResponseWriter, request *http.Request) {
 	var output string
 	var err error
-
-	fmt.Println(request.Method)
 
 	if request.Method == http.MethodPost {
 		login := request.FormValue("login")
@@ -31,6 +38,7 @@ func LoginHandlerPage(writer http.ResponseWriter, request *http.Request) {
 			output = "Неверый логин или пароль"
 		} else {
 			http.Redirect(writer, request, "/notes/", http.StatusFound)
+			user.LogLogin()
 		}
 	}
 
@@ -63,21 +71,4 @@ func AddNoteHandler(writer http.ResponseWriter, request *http.Request) {
 	service.Check(err)
 	err = htmlfile.Execute(writer, user.GetLogin())
 	service.Check(err)
-}
-
-func ConfirmNoteHandler(writer http.ResponseWriter, request *http.Request) {
-	newNote := request.FormValue("newNoteInput")
-	if newNote == "" {
-		http.Redirect(writer, request, "/notes/add/", http.StatusFound)
-	} else {
-		fmt.Println(newNote)
-		// Добавить фичу яндекса
-		// Добавить новую заметку через u.AddNote()
-		http.Redirect(writer, request, "/notes/", http.StatusFound)
-	}
-}
-
-func LogoutHandler(writer http.ResponseWriter, request *http.Request) {
-	user = user.Logout()
-	http.Redirect(writer, request, "/notes/login/", http.StatusFound)
 }

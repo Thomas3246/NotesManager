@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 
-<html lang="en"></html>
+<html lang="ru"></html>
 <head>
     <meta charset="UTF-8">
     <title>My notes</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Мои заметки</h1>
+    <form name="homeForm" action="/notes/">
+        <button class="homeBtn" type="submit">Home</button>
+    </form>
+
+    <h1 class="notesHeader">Мои заметки</h1>
     {{range . }}
-        <p>{{.}}</p>
+        <p class="note">{{.}}</p>
     {{end}}
 
-    <form name="homeForm" action="/notes/">
-        <button type="submit">Home</button>
-    </form>
 </body>
